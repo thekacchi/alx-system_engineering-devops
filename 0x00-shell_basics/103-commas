@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -apm
+ls -la | sed -e 's/\(^[0-9a-zA-Z]\)/,&/' -e 's/\(\/$\)/\1,/' | sort -df | sed -e 's/\(,$\)/\n/'
