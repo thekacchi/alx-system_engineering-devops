@@ -1,2 +1,2 @@
 #!/bin/bash
-if [ -f "hello" ]; then if [ "$(stat -c '%U' hello)" = "guillaume" ]; then chown betty hello; fi; fi
+chown --from=guillaume betty hello
