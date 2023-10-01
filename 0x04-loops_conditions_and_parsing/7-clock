@@ -6,7 +6,10 @@ i=0
 while [ $i != 13 ]; do
 	echo "Hour: $i"
 	i=$((i + 1))
-	for ((j = 1; j <= 60; j++)); do
+	j=1
+
+	while [ $j != 61 ]; do
 		echo $j
+		j=$((j + 1))
 	done
 done
