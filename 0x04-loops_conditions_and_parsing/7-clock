@@ -8,7 +8,7 @@ while [ $i != 13 ]; do
 	i=$((i + 1))
 	j=1
 
-	while [ $j != 61 ]; do
+	while [ $j != 60 ]; do
 		echo $j
 		j=$((j + 1))
 	done
