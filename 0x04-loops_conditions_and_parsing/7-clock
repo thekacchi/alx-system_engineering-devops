@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#displays a clock
+
+i=0
+
+while [ $i != 13 ]; do
+	echo "Hour: $i"
+	i=$((i + 1))
+	for ((j = 1; j <= 60; j++)); do
+		echo $j
+	done
+done
