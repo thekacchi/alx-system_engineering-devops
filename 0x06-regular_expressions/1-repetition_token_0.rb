@@ -4,7 +4,7 @@
 input_string = ARGV[0]
 
 # Define regular expression to match "School"
-regex = /hb(t{n+}n)/
+regex = /hbt{2,5}n)/
 
 # Use scan method to find all the matches in the input string
 matches = input_string.scan(regex)
