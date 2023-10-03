@@ -10,4 +10,4 @@ regex = /\[from:(.*?)\ \[to:(.*?)\] \[flags:(.*?)\]/
 matches = input_string.scan(regex)
 
 # Print matched parts concatenated together
-puts matches.join
+puts matches.join(",")
