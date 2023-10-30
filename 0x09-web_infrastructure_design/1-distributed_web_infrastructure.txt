@@ -1,0 +1,31 @@
+For every additional element, give reasons for the addition
+Load Balancer: For distribution of incoming traffic
+
+Another swever: To prevent crashing juat in case there is ovwrloading because of bulky inciming traffic
+
+What distribution algorithm is your load balancer configured with?
+Active-Active
+That's because it uses one load balancer which distributes all the incoming traffic to the servers.
+
+Differences:
+In Active-Active the incoming traffic is distributed across serveers by a main load balancer while in Active-Passive, the user machines are connected to a main load balancer which handles all the incoming while a backup load balancer (monitors performance of the main) is on standby in case of a service outage.
+
+How a database Primary-Replica (Master-Slave) cluster works
+It enables data from one database server (the master) to the replicated one or more database servers (the slaves)
+
+-What is the difference between the primary node and the Replica node in regards to the application?
+
+
+ISSUES WITH THIS INFRASTRUCTURE
+-Where are SPOF
+If the servers reside in the same data center, then any outage like power would cause dysfunction.
+If the primary MySQL database server is down, the entire site would be unable to make changes to the site.
+
+The server containing the load balancer and application server connecting to the primary database server are also SPOFs...
+
+- Security issues (no firewall, no HTTPS)
+It is using http which is not secure as data is being transferred without being encrypted.
+It lacks firewall, meaning any incoming traffic has access to the data.
+
+- No monitoring
+There is no monitoring being done, we don't know whether our wev is online, working fast, returning error everytime or monitoring requests.
