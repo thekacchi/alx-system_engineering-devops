@@ -1,0 +1,31 @@
+- What is a server?
+A piece of hardware or software that provides functionality to other programs called clients
+
+- What is the role of the domain name?
+Easy identification of hosts on the internet as it is human adapted and text based
+
+- What type of  DNS is www in www.foobar.com?
+CNAME. This is because www in www.foobar.com provides an alias for foobar.com
+
+- What is the role of a web server?
+Hosts files for a web application and procieds communication through http between two computers by accepting, processing and responding to incoming requests.
+
+- What is the role of the application server?
+Serves business logoc to application programs through a number of protocols
+
+- What is the role of a database?
+To store information in an organized manner so that it can be easily accessed, updated and utilized.
+
+- What is the server using to communicate with the computer of the user requesting the website?
+It uses the IP address to communicate with the client using communication protocols like TCP\IP, HTTP.
+
+ISSUES WITH THIS INFRASTRUCTURE
+
+-SPOF
+This can be seen with the client software or hardware, the network connection or with a single server therefore malfunction in its hardware or software or even issues in the data center can cause the entire system to fail.
+
+- Downtime maintenance is needed (like deploying new code web server needs to be restarted)
+Downtime when it is updating requires for the whole system to shutdown, at this time, users will not be able to access the services because there is no other server that can take its place.
+
+- Cannot scale if too much incoming traffic
+It is using a single server that can be overloaded with incoming bulky traffic that can cause server crashing. There is no real scalability, since we don't have another server
