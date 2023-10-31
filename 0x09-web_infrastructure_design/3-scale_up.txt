@@ -1,0 +1,11 @@
+For every additional element, state why youre adding it
+
+- Firewalls:
+To protect each server from unwanted and unauthorized users rather than protecting a single server
+
+- Split components
+Allows the user to see parts of the page eralier without having to wait for the entire page to be rendered on the server
+
+- Back ip Load Balancer
+Maintain uninterrupted services just in case the main one fails
+
