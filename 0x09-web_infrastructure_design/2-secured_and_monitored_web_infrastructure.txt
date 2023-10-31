@@ -1,0 +1,24 @@
+- What are firewalls for?
+Monitors and controls incoming snd outgoing network traffic based on predetermined security rules
+
+- Why is the traffic served over HTTPS?
+HTTP is a secure form of http and it ptovides data encryption during transfer
+
+- What monitoring is used for?
+Monitoring watches computer metrics, records them and emits an alarm if something is unusual or something that could make the computer stop working properly happens.
+
+- How is the monitoring tool collecting data?
+The monitoring tool evaluates every unit in the infrastructure, considers which work metrics and resource metrics are reasonably available and collects them all.
+
+- Explain what to do if you want to monitor your web server QPS
+Install the tool Sumologic to monitor the disk I/O, MySql, Memory, Network, CPU.
+
+ISSUES WITH INFRASTRUCTURE
+- Why terminating SSL at the load balancer level is an issue
+It will affect sensitive data transmission as the connection is now insecure.
+
+- Why having only one MySQL server capable of accepting writes is an issue
+Setting one MySQL server in primary, active all the time, the other server is Replica, only synchronized to the first server.
+
+- Why having servers woth all the same components (database, web server and application server) might be a problem
+Failure in that server will fail all of these components.
