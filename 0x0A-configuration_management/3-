@@ -1,0 +1,12 @@
+exec { 'check_and_kill_process':
+  command  => 'pkill -0 killmenow', # Check if the process exists without killing it
+  returns  => [0, 1],                  # Allow the process to be either running or not found
+  provider => shell,
+  before   => Exec['kill_process'],    # Ensure this runs before the actual kill command
+}
+
+exec { 'kill_process':
+  command  => 'pkill killmenow',
+  onlyif   => 'test $? -eq 0',         # Only run if the previous check was successful (exit code 0)
+  provider => shell,
+}
