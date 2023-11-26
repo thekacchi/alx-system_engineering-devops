@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# onnects to server using a private key
 ssh -i ~/.ssh/holberton ubuntu@8.8.8.8
