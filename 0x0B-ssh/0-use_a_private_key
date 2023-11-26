@@ -1,5 +1,2 @@
-# change the open file limit - nginx
-exec { 'Change nginx limit':
-  command   => 'sudo sed -i "s/15/4096/g" /etc/default/nginx; sudo service nginx restart',
-  provider  => shell,
-}
+#!/usr/bin/bash
+ssh -i ~/.ssh.holberton ubuntu@8.8.8.8
