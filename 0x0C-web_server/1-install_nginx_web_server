@@ -2,6 +2,21 @@
 #installs ngix
 
 apt-get -y update
-apt-get -y install nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-service nginx start
+apt-get -y install -y nginx
+echo "<html><body>Hello World!</body></html>" > | sudo tee /var/www/html/index.html
+
+# Configure Nginx to use the custom HTML file
+bash -c 'cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+EOF'
+
+# Restart Nginx
+/etc/init.d/nginx restart
