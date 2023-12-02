@@ -19,10 +19,10 @@ SERVER_CONFIG=\
         }
         if (\$request_filename ~ redirect_me){
                 rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-        }
+	}
 
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
-
+         
 if [ "$(pgrep -c nginx)" -le 0 ]; then
         service nginx start
 else
