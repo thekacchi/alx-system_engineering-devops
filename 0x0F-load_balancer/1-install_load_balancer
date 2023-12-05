@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#install and configure HAproxy on a server
+
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+#Activate the load balancer
+sudo sed -i "8 a\ENABLED=1\n" /etc/default/haproxy
+
+#Configure web servers with load balancers
+sudo sed -i "$ a\ \nfrontend load_balancer\n\tbind\t0.0.0.0:80\n\tmode\thttp\n\tdefault_backend\tweb_servers\n\nbackend web_servers\n\tbalance\troundrobin\n\tserver\t1115-web-01\t34.73.76.135:80\n\tserver\t1115-web-02\t18.209.20.255:80" /etc/haproxy/haproxy.cfg
+
+sudo service haproxy start
