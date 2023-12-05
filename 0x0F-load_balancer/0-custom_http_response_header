@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#configures a brand new ubuntu machine
+#with a http header naned X-served by
+#and value = hostnamr
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+#get hostname
+hostname=$(hostname)
+
+#configure nginx to add custom header
+sudo bash -c "echo 'add_header X-Served-By $hostname;' >> /etc/nginx/nginx.conf"
+
+#restart Nginx for changes to reflect
+sudo service nginx restart
