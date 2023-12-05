@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
-#configures a brand new ubuntu machine
-#with a http header naned X-served by
-#and value = hostnamr
+#configure an nginx server as stipulated
+#with http server
 
-sudo apt-get update
-sudo apt-get install -y nginx
+INDEX_CPY="Successful!"
+ERROR_CPY="404 - Page not found"
 
-#get hostname
-hostname=$(hostname)
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-#configure nginx to add custom header
-sudo bash -c "echo 'add_header X-Served-By $hostname;' >> /etc/nginx/nginx.conf"
+echo "$INDEX_CPY" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+echo "$ERROR_CPY" | sudo tee /var/www/html/custom_404.html > /dev/null
 
-#restart Nginx for changes to reflect
-sudo service nginx restart
+#configurate redirection
+sudo sed -i '/^\sserver_name.*/a \        rewrite ^/redirect_me https://www.x.com/the_kacchi?s=21 permanent;' /etc/nginx/sites-available/default
+
+#configurate custom 404
+sudo sed -i '/^\slocation.*/i \        error_page 404 /custom_404.html;' /etc/nginx/sites-available/default
+
+#shellcheck disable=SC2154
+#configurate custom custkm response header
+sudo sed -i '/^\slocation.*/i \        add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+#run the server
+sudo service nginx start
