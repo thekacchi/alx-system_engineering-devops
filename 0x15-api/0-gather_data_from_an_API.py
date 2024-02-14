@@ -1,7 +1,11 @@
+#!/usr/bin/python3
+"""Gathering data from an api"""
+
 import requests
 import sys
 
 def fetch_todo_list(employee_id):
+    """function to gather data from a api"""
     url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
     response = requests.get(url)
 
@@ -19,6 +23,7 @@ def fetch_todo_list(employee_id):
         print(f"Failed to fetch data. Status code: {response.status_code}")
 
 if __name__ == "__main__":
+    """function implementation"""
     if len(sys.argv) != 2:
         print("Usage: python script.py <employee_id>")
     else:
