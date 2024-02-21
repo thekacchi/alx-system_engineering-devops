@@ -25,6 +25,7 @@ def first_line(id):
     with open(filename, 'r') as f:
         first = f.readline().strip()
 
+    print(first)
     if name in first:
         print(name)
         print("Employee Name: OK")
