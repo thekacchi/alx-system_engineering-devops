@@ -16,9 +16,11 @@ def fetch_todo_list(employee_id):
             'title'
         ] for task in todos if task['completed']]
         total_tasks = len(todos)
-        employee_name = todos[0][
+        user_info = requests.get(f'https://jsonplaceholder.typicode.com/users/{employee_id}').json()
+        employee_name = user_info['name']
+        """employee_name = todos[0][
             'title'
-        ].split(" ")[1]  # Extracting the employee name differently
+        ].split(" ")[1]  # Extracting the employee name differently"""
 
         print(
               f'Employee {employee_name} is done with tasks '
