@@ -29,7 +29,7 @@ def fetch_todo_list(employee_id):
               f'({len(completed_tasks)}/{total_tasks}):'
         )
         for task_title in completed_tasks:
-            print(f'T {task_title}')
+            print(f'\t {task_title}')
 
     else:
         print(f"Failed to fetch data. Status code: {response.status_code}")
